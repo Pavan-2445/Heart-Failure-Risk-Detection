@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💓 Heart Failure Predictor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💓 Heart Failure Risk Prediction</h1>
+    <form action="/predict" method="POST" class="grid-form">
+      
+      <input type="number" name="age" placeholder="Age" step="0.1" required>
+      
+      <select name="anaemia" required>
+        <option value="" disabled selected>Anaemia?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" step="0.1" required>
+
+      <select name="diabetes" required>
+        <option value="" disabled selected>Diabetes?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction" step="0.1" required>
+
+      <select name="high_blood_pressure" required>
+        <option value="" disabled selected>High BP?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="platelets" placeholder="Platelets" step="0.1" required>
+      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required>
+      <input type="number" name="serum_sodium" placeholder="Serum Sodium" step="0.1" required>
+
+      <select name="sex" required>
+        <option value="" disabled selected>Sex</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+
+      <select name="smoking" required>
+        <option value="" disabled selected>Smoking?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="time" placeholder="Follow-up Period (Days)" required>
+
+      <button type="submit">Predict 💡</button>
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>

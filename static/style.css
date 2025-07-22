@@ -1,0 +1,82 @@
+/* Styling.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff5858, #f857a6, #ff5858);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.10);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 88, 88, 0.15);
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #fff;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+input, select {
+  padding: 14px;
+  font-size: 17px;
+  border-radius: 10px;
+  border: 2px solid #f857a6;
+  background-color: #fff0f3;
+  color: #b71c1c;
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  box-shadow: 0 2px 8px rgba(248, 87, 166, 0.08);
+}
+
+input:focus, select:focus {
+  border-color: #ff5858;
+  box-shadow: 0 0 8px #f857a6;
+  outline: none;
+}
+
+input::placeholder {
+  color: #e57373;
+}
+
+button {
+  grid-column: span 3;
+  padding: 14px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #ff5858 0%, #f857a6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #f857a6 0%, #ff5858 100%);
+}
+
+.result {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+} 
