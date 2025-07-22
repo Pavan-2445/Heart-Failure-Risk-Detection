@@ -11,47 +11,47 @@
     <h1>Heart Failure Risk Prediction</h1>
     <form action="/predict" method="POST" class="grid-form animate-slideup">
       
-      <input type="number" name="age" placeholder="Age" step="0.1" required>
+      <input type="number" name="age" placeholder="Age" step="0.1" required value="{{ form_values.age if form_values and form_values.age is defined else '' }}">
       
       <select name="anaemia" required>
-        <option value="" disabled selected>Anaemia?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="" disabled {% if not form_values or form_values.anaemia is not defined %}selected{% endif %}>Anaemia?</option>
+        <option value="1" {% if form_values and form_values.anaemia == '1' %}selected{% endif %}>Yes</option>
+        <option value="0" {% if form_values and form_values.anaemia == '0' %}selected{% endif %}>No</option>
       </select>
 
-      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" step="0.1" required>
+      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" step="0.1" required value="{{ form_values.creatinine_phosphokinase if form_values and form_values.creatinine_phosphokinase is defined else '' }}">
 
       <select name="diabetes" required>
-        <option value="" disabled selected>Diabetes?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="" disabled {% if not form_values or form_values.diabetes is not defined %}selected{% endif %}>Diabetes?</option>
+        <option value="1" {% if form_values and form_values.diabetes == '1' %}selected{% endif %}>Yes</option>
+        <option value="0" {% if form_values and form_values.diabetes == '0' %}selected{% endif %}>No</option>
       </select>
 
-      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction" step="0.1" required>
+      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction" step="0.1" required value="{{ form_values.ejection_fraction if form_values and form_values.ejection_fraction is defined else '' }}">
 
       <select name="high_blood_pressure" required>
-        <option value="" disabled selected>High BP?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="" disabled {% if not form_values or form_values.high_blood_pressure is not defined %}selected{% endif %}>High BP?</option>
+        <option value="1" {% if form_values and form_values.high_blood_pressure == '1' %}selected{% endif %}>Yes</option>
+        <option value="0" {% if form_values and form_values.high_blood_pressure == '0' %}selected{% endif %}>No</option>
       </select>
 
-      <input type="number" name="platelets" placeholder="Platelets" step="0.1" required>
-      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required>
-      <input type="number" name="serum_sodium" placeholder="Serum Sodium" step="0.1" required>
+      <input type="number" name="platelets" placeholder="Platelets" step="0.1" required value="{{ form_values.platelets if form_values and form_values.platelets is defined else '' }}">
+      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required value="{{ form_values.serum_creatinine if form_values and form_values.serum_creatinine is defined else '' }}">
+      <input type="number" name="serum_sodium" placeholder="Serum Sodium" step="0.1" required value="{{ form_values.serum_sodium if form_values and form_values.serum_sodium is defined else '' }}">
 
       <select name="sex" required>
-        <option value="" disabled selected>Sex</option>
-        <option value="1">Male</option>
-        <option value="0">Female</option>
+        <option value="" disabled {% if not form_values or form_values.sex is not defined %}selected{% endif %}>Sex</option>
+        <option value="1" {% if form_values and form_values.sex == '1' %}selected{% endif %}>Male</option>
+        <option value="0" {% if form_values and form_values.sex == '0' %}selected{% endif %}>Female</option>
       </select>
 
       <select name="smoking" required>
-        <option value="" disabled selected>Smoking?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
+        <option value="" disabled {% if not form_values or form_values.smoking is not defined %}selected{% endif %}>Smoking?</option>
+        <option value="1" {% if form_values and form_values.smoking == '1' %}selected{% endif %}>Yes</option>
+        <option value="0" {% if form_values and form_values.smoking == '0' %}selected{% endif %}>No</option>
       </select>
 
-      <input type="number" name="time" placeholder="Follow-up Period (Days)" required>
+      <input type="number" name="time" placeholder="Follow-up Period (Days)" required value="{{ form_values.time if form_values and form_values.time is defined else '' }}">
 
       <button type="submit">Predict 💡</button>
     </form>
