@@ -1,63 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>💓 Heart Failure Predictor</title>
-  <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>💓 Heart Failure Risk Prediction</h1>
-    <form action="/predict" method="POST" class="grid-form">
-      
-      <input type="number" name="age" placeholder="Age" step="0.1" required>
-      
-      <select name="anaemia" required>
-        <option value="" disabled selected>Anaemia?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
+/* Styling.css */
 
-      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" step="0.1" required>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      <select name="diabetes" required>
-        <option value="" disabled selected>Diabetes?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
+.container {
+  background: rgba(60, 60, 60, 0.18);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+}
 
-      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction" step="0.1" required>
+h1 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: #fff;
+}
 
-      <select name="high_blood_pressure" required>
-        <option value="" disabled selected>High BP?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-      <input type="number" name="platelets" placeholder="Platelets" step="0.1" required>
-      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required>
-      <input type="number" name="serum_sodium" placeholder="Serum Sodium" step="0.1" required>
+input, select {
+  padding: 14px;
+  font-size: 17px;
+  border-radius: 10px;
+  border: 2px solid #f857a6;
+  background-color: #fff0f3;
+  color: #b71c1c;
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  box-shadow: 0 2px 8px rgba(248, 87, 166, 0.08);
+}
 
-      <select name="sex" required>
-        <option value="" disabled selected>Sex</option>
-        <option value="1">Male</option>
-        <option value="0">Female</option>
-      </select>
+input:focus, select:focus {
+  border-color: #ff5858;
+  box-shadow: 0 0 8px #f857a6;
+  outline: none;
+}
 
-      <select name="smoking" required>
-        <option value="" disabled selected>Smoking?</option>
-        <option value="1">Yes</option>
-        <option value="0">No</option>
-      </select>
+input::placeholder {
+  color: #e57373;
+}
 
-      <input type="number" name="time" placeholder="Follow-up Period (Days)" required>
+button {
+  grid-column: span 3;
+  padding: 14px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #ff5858 0%, #f857a6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-      <button type="submit">Predict 💡</button>
-    </form>
+button:hover {
+  background: linear-gradient(90deg, #f857a6 0%, #ff5858 100%);
+}
 
-    {% if prediction_text %}
-      <div class="result">{{ prediction_text }}</div>
-    {% endif %}
-  </div>
-</body>
-</html>
+.result {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Heart Pulse Animation */
+.heart-pulse {
+  display: inline-block;
+  font-size: 48px;
+  animation: pulse 1.2s infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+  30% { transform: scale(1.18); filter: drop-shadow(0 0 12px #ff5858); }
+  50% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+  70% { transform: scale(1.18); filter: drop-shadow(0 0 12px #ff5858); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+}
+
+/* Arrival Animations */
+.animate-fadein {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.animate-slideup {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.2s 0.3s cubic-bezier(.23,1.01,.32,1) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
