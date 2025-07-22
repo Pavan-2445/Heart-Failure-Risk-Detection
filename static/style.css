@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #ff5858, #f857a6, #ff5858);
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -12,10 +12,10 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(60, 60, 60, 0.18);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255, 88, 88, 0.15);
+  box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
   width: 90%;
   max-width: 1000px;
   text-align: center;
@@ -79,4 +79,43 @@ button:hover {
   font-size: 22px;
   font-weight: bold;
   color: #ffffff;
+}
+
+/* Heart Pulse Animation */
+.heart-pulse {
+  display: inline-block;
+  font-size: 48px;
+  animation: pulse 1.2s infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+  30% { transform: scale(1.18); filter: drop-shadow(0 0 12px #ff5858); }
+  50% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+  70% { transform: scale(1.18); filter: drop-shadow(0 0 12px #ff5858); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 #f857a6); }
+}
+
+/* Arrival Animations */
+.animate-fadein {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.animate-slideup {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.2s 0.3s cubic-bezier(.23,1.01,.32,1) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 
