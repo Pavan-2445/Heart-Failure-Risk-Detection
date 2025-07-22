@@ -16,6 +16,7 @@ def home():
 def predict():
     try:
         input_data = []
+        form_values = request.form.to_dict()
         def yesno(val):
             return 1 if val == 'yes' else 0
         # Get data from form and convert to numeric
@@ -36,9 +37,9 @@ def predict():
         pred = model.predict([np.array(input_data)])[0]
         result = "High Risk 😥" if pred == 1 else "Low Risk 😊"
 
-        return render_template('index.html', prediction_text=f'Prediction: {result}')
+        return render_template('index.html', prediction_text=f'Prediction: {result}', form_values=form_values)
     except Exception as e:
-        return render_template('index.html', prediction_text=f"Error: {e}")
+        return render_template('index.html', prediction_text=f"Error: {e}", form_values=request.form.to_dict())
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5010))
